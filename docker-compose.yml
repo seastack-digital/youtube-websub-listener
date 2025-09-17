@@ -1,0 +1,13 @@
+services:
+  websub-listener:
+    build: .
+    environment:
+      # REQUIRED: set these
+      - PUBLIC_BASE_URL=${PUBLIC_BASE_URL}
+      - YOUTUBE_CHANNEL_ID=${YOUTUBE_CHANNEL_ID}
+      # optional but recommended to bind verification to your request
+      - VERIFY_TOKEN=${VERIFY_TOKEN:-devtoken}
+      - PORT=8080
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
