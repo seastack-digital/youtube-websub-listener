@@ -1,5 +1,5 @@
 # Build
-FROM golang:1.22 AS builder
+FROM golang:1.25.1 AS builder
 WORKDIR /src
 COPY . .
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o app
